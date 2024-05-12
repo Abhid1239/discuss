@@ -1,3 +1,4 @@
+import { createPostInput, updatePostInput } from "@discuss1239/common";
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
 
@@ -29,7 +30,11 @@ BlogRoute.use("/*", async (c, next) => {
 BlogRoute.post("/", async (c) => {
   const prisma = c.get("prisma");
   const body = await c.req.json();
-  //   console.log(body, prisma);
+  const { success } = createPostInput.safeParse(body);
+  if (!success) {
+    c.status(411);
+    return c.json({ error: "Input Not Valid" });
+  }
   const authorId = c.get("userId") || "";
   try {
     const post = await prisma.post.create({
@@ -92,7 +97,11 @@ BlogRoute.put("/", async (c) => {
   const prisma = c.get("prisma");
   const body = await c.req.json();
   console.log("err");
-
+  const { success } = updatePostInput.safeParse(body);
+  if (!success) {
+    c.status(411);
+    return c.json({ error: "Input Not Valid" });
+  }
   try {
     const post = await prisma.post.update({
       where: {

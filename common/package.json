@@ -1,6 +1,6 @@
 {
-  "name": "@discuss/common",
-  "version": "1.0.0",
+  "name": "@discuss1239/common",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
