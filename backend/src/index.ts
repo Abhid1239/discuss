@@ -4,6 +4,7 @@ import { withAccelerate } from "@prisma/extension-accelerate";
 import { decode, sign, verify } from "hono/jwt";
 import UserRoute from "./UserRoute";
 import BlogRoute from "./BlogRoute";
+import { cors } from "hono/cors";
 
 const app = new Hono<{
   Bindings: {
@@ -16,13 +17,15 @@ const app = new Hono<{
   };
 }>();
 
-app.use("*", async (c, next) => {
+app.use("/api/*", async (c, next) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
   c.set("prisma", prisma);
   await next();
 });
+
+app.use("api/*", cors());
 
 app.get("/", (c) => {
   return c.text("Hello Hono!");
