@@ -7,7 +7,12 @@ import Blog from './pages/Blog'
 
 function Main() {
   return (
-    <Link to='/signup'>Sign Up</Link>
+    <>
+      <p>
+        Hello World
+      </p>
+      <Link to='/signup'>Sign Up</Link>
+    </>
   )
 }
 function App() {
@@ -19,7 +24,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="" element={<Main />} />
+          <Route path="/" element={<Main />} />
         </Routes>
       </BrowserRouter>
     </>
