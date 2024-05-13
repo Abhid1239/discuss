@@ -1,11 +1,10 @@
-import React from "react";
-import Logo from "./Logo";
+// import React from "react";
 import Avtaar from "./Avtaar";
 import { BookMarked, MinusCircleIcon, MoreHorizontal } from "lucide-react";
 
-type Props = {};
+// type Props = {};
 
-const BlogPost = (props: Props) => {
+const BlogPost = () => {
     return (
         <div className=" mx-6 pt-6 border-b border-grey-400">
             <div className="flex items-center">

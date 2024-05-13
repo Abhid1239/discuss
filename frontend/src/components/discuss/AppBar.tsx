@@ -1,11 +1,10 @@
-import React from "react";
 import Logo from "./Logo";
 import { Bell, NotebookPen, SearchSlash } from "lucide-react";
 import Avtaar from "./Avtaar";
 
-type Props = {};
+// type Props = {};
 
-const AppBar = (props: Props) => {
+const AppBar = () => {
     return (
         <div className="block sticky top-0 z-50 bg-white">
             <div className="h-14 px-6 border-b border-gray-200 flex items-center">

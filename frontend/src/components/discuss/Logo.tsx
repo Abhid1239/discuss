@@ -1,4 +1,4 @@
-function Logo({ isLogoNamePresent = true }: { isLogoNamePresent: boolean }) {
+function Logo({ isLogoNamePresent = true }: { isLogoNamePresent?: boolean }) {
     return (
         <div className="relative z-20 flex items-center text-xl font-medium">
             <svg
