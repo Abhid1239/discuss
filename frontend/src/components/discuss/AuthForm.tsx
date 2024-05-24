@@ -23,19 +23,17 @@ function AuthForm({ type }: { type: "signup" | "login" }) {
             setLoading(true)
             const response = await axios.post(`${BACKEND_URL}/user/${type === "signup" ? "signup" : "signin"}`,
                 formData)
-
             const jwtToken = response.data;
+            console.log(jwtToken.jwt);
             setLoading(false)
-            window.localStorage.setItem('jwtToken', jwtToken);
-            navigation("/blog")
+            window.localStorage.setItem('jwtToken', jwtToken.jwt);
+            navigation("/blogs")
         }
         catch (err) {
             console.log(err);
             setLoading(false)
 
         }
-
-
     }
     const isButtonDisabled = formData.email && formData.password.length > 6
     return (

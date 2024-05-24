@@ -28,7 +28,7 @@ function Avtaar({
                     alt="Rounded avatar"
                 />
             ) : (
-                <span className="font-medium text-gray-600 dark:text-gray-300">
+                <span className="font-medium text-gray-600 dark:text-gray-300 uppercase">
                     {cred}
                 </span>
             )}
